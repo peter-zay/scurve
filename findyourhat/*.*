@@ -1,0 +1,24 @@
+const prompt = require('prompt-sync')({sigint: true});
+
+const hat = '^';
+const hole = 'O';
+const fieldCharacter = '░';
+const pathCharacter = '*';
+
+class Field {
+constructor(field) {
+    this.field = field;
+    this.playerRow = 0;
+    this.playerCol = 0;
+}
+
+static generateField(height, width) {
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
+        }}}
+
+        return field;
+}
+
+const myField = Field.generateField(10, 10);
+console.log(myField);
