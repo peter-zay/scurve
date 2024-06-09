@@ -17,15 +17,13 @@ class Field {
 
     static generateField(height, width) {
         let field = [];
-        let hatRow, hatCol, playerRow, playerCol;
+        let hatRow, hatCol;
         
         do {
             hatRow = Math.floor(Math.random() * height);
             hatCol = Math.floor(Math.random() * width);
-            playerRow = Math.floor(Math.random() * height);
-            playerCol = Math.floor(Math.random() * width);
-        } while ((hatRow === playerRow && hatCol === playerCol) || (hatRow === 0 && hatCol === 0));
-
+        } while (hatRow === 0 && hatCol === 0);
+    
         for (let i = 0; i < height; i++) {
             let row = [];
             for (let j = 0; j < width; j++) {
@@ -33,15 +31,13 @@ class Field {
                     row.push(pathCharacter);
                 } else if (i === hatRow && j === hatCol) {
                     row.push(hat);
-                } else if (i === playerRow && j === playerCol) {
-                    row.push(pathCharacter);
                 } else {
                     row.push(Math.random() < 0.2? hole : fieldCharacter);
                 }
             }
             field.push(row);
         }
-
+    
         return new Field(field);
     }
 
@@ -108,3 +104,5 @@ while (playAgain) {
         }
     }
 }
+
+
